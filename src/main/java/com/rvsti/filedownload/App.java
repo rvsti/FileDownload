@@ -14,8 +14,8 @@ public class App {
 
     for (String url : urls) {
       DownloaderFactory factory = new DownloaderFactory();
-      Downloader d = factory.getPlan(url);
+      Downloader d = factory.getDownloader(url);
     }
-  }
 
+  }
 }
