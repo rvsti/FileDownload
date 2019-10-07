@@ -14,7 +14,7 @@ public class DownloaderFactory {
     if (url.contains(UrlType.HTTP.getType())) {
       return new HttpDownloader();
     } else if (url.contains(UrlType.FTP.getType())) {
-      return new FtpDownloader();
+      return new FtpDownloader("ftp_server.journaldev.com", "ftp_user@journaldev.com", "ftpPassword");
     }
     return null;
   }
