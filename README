@@ -3,11 +3,12 @@ The program handles file download for the following protocols:
 2. HTTPS
 3. SCP
 4. FTP
-5. SFTP,
+5. SFTP
 
 Input:
 1. Added the line separated test urls into FileDownload/resources/Urls.txt file
-2. Run FileDownload/src/main/java/App.java
+2. Run 'mvn clean install'
+3. Run FileDownload/src/main/java/App.java
 
 Output
 1. Files are downloaded into the user's home directory (/Users/$(username)/$(filename)) after

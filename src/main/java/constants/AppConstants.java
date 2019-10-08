@@ -2,8 +2,7 @@ package constants;
 
 public class AppConstants {
 
-  public final static String Ftp_Username = "ftp_user@journaldev.com";
-  public final static String Ftp_Password =  "ftpPassword";
+  public final static String Http_Url = "https://www.journaldev.com/sitemap.xml";
 
   public final static String Sftp_Username = "";
   public final static String Sftp_Password = "";

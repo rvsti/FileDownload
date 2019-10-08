@@ -2,6 +2,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import constants.AppConstants;
 import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
@@ -13,6 +14,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import svc.Downloader;
 import svc.impl.HttpDownloader;
+import utils.FileUtils;
 
 public class AppTest {
 
@@ -27,8 +29,8 @@ public class AppTest {
 
   @Test
   public void downloadFile() throws Exception {
-    String path = "/Users/mmt7924/f.xml";
-    String urlStr = "https://www.journaldev.com/sitemap.xml";
+    String urlStr = AppConstants.Http_Url;
+    String path = System.getProperty("user.home") + "/" + FileUtils.getFileName(urlStr);
     app.downloadFile(urlStr,path);
     URL url = new URL(urlStr);
     URLConnection uc = url.openConnection();
