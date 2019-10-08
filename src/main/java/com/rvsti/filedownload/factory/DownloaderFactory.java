@@ -15,10 +15,10 @@ public class DownloaderFactory {
     if (url.contains(UrlType.HTTP.getType())) {
       return new HttpDownloader();
     } else if (url.contains(UrlType.FTP.getType())) {
-      return new FtpDownloader("ftp_server.journaldev.com", "ftp_user@journaldev.com", "ftpPassword");
+      return new FtpDownloader();
       }
     else if(url.contains((UrlType.SFTP.getType()))) {
-      return new SftpDownloader("","","","");
+      return new SftpDownloader();
     }
     return null;
   }

@@ -1,5 +1,6 @@
 package com.rvsti.filedownload.svc.impl;
 
+import com.rvsti.filedownload.constants.AppConstants;
 import com.rvsti.filedownload.svc.Downloader;
 import java.io.BufferedInputStream;
 import java.io.FileOutputStream;
@@ -11,7 +12,7 @@ public class HttpDownloader implements Downloader {
   @Override
   public void downloadFile(String urlStr) throws IOException {
     URL url = new URL(urlStr);
-    String file = "/Users/mmt7924/f.xml";
+    String file = AppConstants.Http_Filepath;
     BufferedInputStream bis = new BufferedInputStream(url.openStream());
     FileOutputStream fis = new FileOutputStream(file);
     byte[] buffer = new byte[1024];
