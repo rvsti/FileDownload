@@ -1,3 +1,5 @@
+package constants;
+
 public class AppConstants {
 
   public final static String Ftp_Username = "ftp_user@journaldev.com";

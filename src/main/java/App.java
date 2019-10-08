@@ -22,8 +22,8 @@ public class App {
   }
 
   public static void main(String[] args) {
-    List<String> urls = getUrls("/Users/mmt7924/FileDownload/src/main/resources/Urls.text");;
-
+    List<String> urls = getUrls("/Users/mmt7924/FileDownload/src/main/resources/Urls.text");
+    String localPath = "";
 
     for (String url : urls) {
       DownloaderFactory factory = new DownloaderFactory();

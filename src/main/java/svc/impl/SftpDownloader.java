@@ -1,6 +1,6 @@
 package svc.impl;
 
-import AppConstants;
+import constants.AppConstants;
 import svc.Downloader;
 import java.io.IOException;
 import org.apache.commons.vfs2.*;
