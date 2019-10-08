@@ -17,9 +17,9 @@ public class ScpDownloader implements Downloader {
         try{
             String user = url.substring(6, url.indexOf('@'));
             String str = url.substring(url.indexOf('@')+1);
-            String host = str.substring(0, str.indexOf(':'));
+            String host = str.substring(0, str.indexOf('/'));
 
-            String rfile = str.substring(str.indexOf(':')+1);
+            String rfile = str.substring(str.indexOf('/'));
             String lfile = filePath;
 
             String prefix=null;

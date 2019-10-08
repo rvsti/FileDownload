@@ -19,15 +19,14 @@ public class FtpDownloader implements Downloader {
     ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
     int reply;
     try {
-      String host = url.substring(6);
+      String host = url.substring(6, url.lastIndexOf('/'));
       ftp.connect(host);
-      System.out.println(host);
       reply = ftp.getReplyCode();
       if (!FTPReply.isPositiveCompletion(reply)) {
         ftp.disconnect();
         throw new Exception("Exception in connecting to FTP Server");
       }
-      ftp.login(AppConstants.Ftp_Username, AppConstants.Ftp_Password);
+      ftp.login("anonymous", " ");
       ftp.setFileType(FTP.BINARY_FILE_TYPE);
       ftp.enterLocalPassiveMode();
     }
@@ -42,7 +41,7 @@ public class FtpDownloader implements Downloader {
     try (FileOutputStream fos = new FileOutputStream(localPath)) {
       this.ftp.retrieveFile(localPath, fos);
     } catch (IOException e) {
-      e.printStackTrace();
+//      e.printStackTrace();
       return false;
     }
     if (this.ftp.isConnected()) {
@@ -51,7 +50,7 @@ public class FtpDownloader implements Downloader {
         this.ftp.disconnect();
         return true;
       } catch (IOException f) {
-        System.out.println(f);
+//        System.out.println(f);
         return false;
 
       }

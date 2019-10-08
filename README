@@ -12,3 +12,21 @@ in your code, please consider:
 4.some sources might fail in the middle of download
 5.we don't want to have partial data in the final location in any case.
 You can implement the code Scala or Java and also include tests.
+
+
+The program handles file download for the following protocols:
+1. HTTP
+2. HTTPS
+3. SCP
+4. FTP
+5. SFTP,
+
+Input:
+1. Added the line separated test urls into FileDownload/resources/Urls.txt file
+2. Run FileDownload/src/main/java/App.java
+
+Output
+1. Files are downloaded into the user's home directory (/Users/$(username)/$(filename)) after
+    extracting the filename from the url.
+
+
