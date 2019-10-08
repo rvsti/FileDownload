@@ -1,18 +1,11 @@
-package com.rvsti.filedownload.svc.impl;
+package svc.impl;
 
-import com.rvsti.filedownload.svc.Downloader;
+import constants.AppConstants;
+import svc.Downloader;
 import java.io.IOException;
 import org.apache.commons.vfs2.*;
 
 public class SftpDownloader implements Downloader {
-  String user, pwd, remoteHost, remoteFile;
-  public SftpDownloader(String user, String pwd, String remoteHost, String remoteFile)
-  {
-    this.user = user;
-    this.pwd = pwd;
-    this.remoteHost = remoteHost;
-    this.remoteFile = remoteFile;
-  }
 
   @Override
   public void downloadFile(String url) throws IOException {
@@ -21,7 +14,7 @@ public class SftpDownloader implements Downloader {
     FileObject local = manager.resolveFile(
       System.getProperty("user.dir") + "/"  + "vfsFile.txt");
     FileObject remote = manager.resolveFile(
-      "sftp://" + user + ":" + pwd + "@" + remoteHost + "/" + remoteFile);
+      "sftp://" + AppConstants.Sftp_Host + ":" + AppConstants.Sftp_Username + "@" + AppConstants.Sftp_Password + "/" + AppConstants.Sftp_File);
 
     local.copyFrom(remote, Selectors.SELECT_SELF);
 

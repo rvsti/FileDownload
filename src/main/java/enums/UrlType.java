@@ -1,4 +1,4 @@
-package com.rvsti.filedownload.enums;
+package enums;
 
 public enum UrlType {
   HTTP("http"), FTP("ftp"), SFTP("sftp"), SCP("scp");

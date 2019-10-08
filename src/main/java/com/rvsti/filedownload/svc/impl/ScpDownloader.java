@@ -1,7 +1,8 @@
 package com.rvsti.filedownload.svc.impl;
 
-import com.rvsti.filedownload.svc.Downloader;
 import com.jcraft.jsch.*;
+import svc.Downloader;
+
 import java.awt.*;
 import javax.swing.*;
 import java.io.*;

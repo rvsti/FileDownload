@@ -1,4 +1,4 @@
-package com.rvsti.filedownload.svc;
+package svc;
 
 import java.io.IOException;
 
