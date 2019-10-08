@@ -14,12 +14,14 @@ public class FtpDownloader implements Downloader {
 
   FTPClient ftp = null;
 
-  public FtpDownloader() {
+  public void initializeClient(String url) {
     ftp = new FTPClient();
     ftp.addProtocolCommandListener(new PrintCommandListener(new PrintWriter(System.out)));
     int reply;
     try {
-      ftp.connect(AppConstants.Ftp_Host);
+      String host = url.substring(6);
+      ftp.connect(host);
+      System.out.println(host);
       reply = ftp.getReplyCode();
       if (!FTPReply.isPositiveCompletion(reply)) {
         ftp.disconnect();
@@ -36,8 +38,9 @@ public class FtpDownloader implements Downloader {
 
   @Override
   public void downloadFile(String url, String localPath) {
+    initializeClient(url);
     try (FileOutputStream fos = new FileOutputStream(localPath)) {
-      this.ftp.retrieveFile(AppConstants.Ftp_Filepath, fos);
+      this.ftp.retrieveFile(localPath, fos);
     } catch (IOException e) {
       e.printStackTrace();
     }

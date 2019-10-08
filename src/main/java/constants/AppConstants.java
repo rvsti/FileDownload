@@ -12,11 +12,4 @@ public class AppConstants {
   public final static String Sftp_Host = "";
   public final static String Sftp_File = "";
 
-  public final static String Scp_Username = "";
-  public final static String Scp_Password = "";
-  public final static String Scp_Host = "";
-  public final static String Scp_File = "";
-
-  public final static String Http_Filepath = "/Users/mmt7924/f.xml";
-
 }
