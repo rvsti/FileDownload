@@ -4,6 +4,6 @@ import java.io.IOException;
 
 public interface Downloader {
 
-  void downloadFile(String url) throws IOException;
+  void downloadFile(String url, String localPath) throws IOException;
 
 }

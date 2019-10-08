@@ -35,8 +35,8 @@ public class FtpDownloader implements Downloader {
   }
 
   @Override
-  public void downloadFile(String url) {
-    try (FileOutputStream fos = new FileOutputStream("/Users/mmt7924/f2.xml")) {
+  public void downloadFile(String url, String localPath) {
+    try (FileOutputStream fos = new FileOutputStream(localPath)) {
       this.ftp.retrieveFile(AppConstants.Ftp_Filepath, fos);
     } catch (IOException e) {
       e.printStackTrace();

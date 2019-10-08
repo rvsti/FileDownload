@@ -1,4 +1,4 @@
-package com.rvsti.filedownload.svc.impl;
+package svc.impl;
 
 import com.jcraft.jsch.*;
 import svc.Downloader;
@@ -10,7 +10,7 @@ import java.io.*;
 public class ScpDownloader implements Downloader {
 
     @Override
-    public void downloadFile(String urlStr) {
+    public void downloadFile(String urlStr,String filePath) {
 
     }
 

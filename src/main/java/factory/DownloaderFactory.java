@@ -1,6 +1,6 @@
 package factory;
 
-import com.rvsti.filedownload.svc.impl.ScpDownloader;
+import svc.impl.ScpDownloader;
 import enums.UrlType;
 import svc.Downloader;
 import svc.impl.FtpDownloader;
