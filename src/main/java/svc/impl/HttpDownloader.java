@@ -12,9 +12,8 @@ public class HttpDownloader implements Downloader {
   @Override
   public void downloadFile(String urlStr, String localPath) throws IOException {
     URL url = new URL(urlStr);
-    String file = AppConstants.Http_Filepath;
     BufferedInputStream bis = new BufferedInputStream(url.openStream());
-    FileOutputStream fis = new FileOutputStream(file);
+    FileOutputStream fis = new FileOutputStream(localPath);
     byte[] buffer = new byte[1024];
     int count=0;
     while((count = bis.read(buffer,0,1024)) != -1)
