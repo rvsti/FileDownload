@@ -23,13 +23,13 @@ public class App {
 
   public static void main(String[] args) {
     List<String> urls = getUrls("/Users/mmt7924/FileDownload/src/main/resources/Urls.text");
-    String localPath = "";
+    String localPath = ("user.dir") + "/";
 
     for (String url : urls) {
       DownloaderFactory factory = new DownloaderFactory();
       Downloader df = factory.getDownloader(url);
       try {
-        df.downloadFile(url);
+        df.downloadFile(url,localPath);
       }
       catch (IOException ex)
       {
