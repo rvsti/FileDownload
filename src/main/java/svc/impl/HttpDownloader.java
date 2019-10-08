@@ -10,7 +10,7 @@ import java.net.URL;
 public class HttpDownloader implements Downloader {
 
   @Override
-  public void downloadFile(String urlStr) throws IOException {
+  public void downloadFile(String urlStr, String localPath) throws IOException {
     URL url = new URL(urlStr);
     String file = AppConstants.Http_Filepath;
     BufferedInputStream bis = new BufferedInputStream(url.openStream());
