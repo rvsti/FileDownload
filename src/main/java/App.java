@@ -14,8 +14,6 @@ public class App {
     List<String> urls = Collections.emptyList();
     try
     {
-//      Path pathToFile = Paths.get(fileName);
-//      System.out.println(pathToFile.toAbsolutePath());
       urls = Files.readAllLines(Paths.get(fileName), StandardCharsets.UTF_8);
     }
     catch (IOException e)

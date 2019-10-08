@@ -8,7 +8,7 @@ import org.apache.commons.vfs2.*;
 public class SftpDownloader implements Downloader {
 
   @Override
-  public void downloadFile(String url,String localPath){
+  public boolean downloadFile(String url,String localPath){
     try {
       FileSystemManager manager = VFS.getManager();
 
@@ -21,8 +21,10 @@ public class SftpDownloader implements Downloader {
 
       local.close();
       remote.close();
+      return true;
     }
     catch (Exception ex) {
+      return false;
     }
   }
 }

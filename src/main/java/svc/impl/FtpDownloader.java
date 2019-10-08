@@ -37,19 +37,25 @@ public class FtpDownloader implements Downloader {
   }
 
   @Override
-  public void downloadFile(String url, String localPath) {
+  public boolean downloadFile(String url, String localPath) {
     initializeClient(url);
     try (FileOutputStream fos = new FileOutputStream(localPath)) {
       this.ftp.retrieveFile(localPath, fos);
     } catch (IOException e) {
       e.printStackTrace();
+      return false;
     }
     if (this.ftp.isConnected()) {
       try {
         this.ftp.logout();
         this.ftp.disconnect();
+        return true;
       } catch (IOException f) {
+        System.out.println(f);
+        return false;
+
       }
     }
+    return false;
   }
 }

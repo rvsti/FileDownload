@@ -10,7 +10,7 @@ import java.io.*;
 public class ScpDownloader implements Downloader {
 
     @Override
-    public void downloadFile(String url, String filePath) {
+    public boolean downloadFile(String url, String filePath) {
 //        scp://root@host/root/ids/rules.tar.gz
 //        String str = "raj@localhost:/Users/raj/Desktop/pics/bo.png";
         FileOutputStream fos = null;
@@ -29,7 +29,6 @@ public class ScpDownloader implements Downloader {
 
             JSch jsch=new JSch();
             Session session=jsch.getSession(user, host, 22);
-
             // username and password will be given via UserInfo interface.
             UserInfo ui = new MyUserInfo();
             session.setUserInfo(ui);
@@ -113,12 +112,12 @@ public class ScpDownloader implements Downloader {
             }
 
             session.disconnect();
-
-            System.exit(0);
+            return true;
         }
         catch(Exception e){
             System.out.println(e);
             try{if(fos!=null)fos.close();}catch(Exception ee){}
+            return false;
         }
     }
 
