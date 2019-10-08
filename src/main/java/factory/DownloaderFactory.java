@@ -1,10 +1,10 @@
-package com.rvsti.filedownload.factory;
+package factory;
 
-import com.rvsti.filedownload.enums.UrlType;
-import com.rvsti.filedownload.svc.Downloader;
-import com.rvsti.filedownload.svc.impl.FtpDownloader;
-import com.rvsti.filedownload.svc.impl.HttpDownloader;
-import com.rvsti.filedownload.svc.impl.SftpDownloader;
+import enums.UrlType;
+import svc.Downloader;
+import svc.impl.FtpDownloader;
+import svc.impl.HttpDownloader;
+import svc.impl.SftpDownloader;
 
 public class DownloaderFactory {
 

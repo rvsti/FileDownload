@@ -1,7 +1,5 @@
-package com.rvsti.filedownload;
-
-import com.rvsti.filedownload.factory.DownloaderFactory;
-import com.rvsti.filedownload.svc.Downloader;
+import factory.DownloaderFactory;
+import svc.Downloader;
 import java.io.IOException;
 import java.util.*;
 import java.nio.charset.StandardCharsets;

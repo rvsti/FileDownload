@@ -1,7 +1,7 @@
-package com.rvsti.filedownload.svc.impl;
+package svc.impl;
 
-import com.rvsti.filedownload.constants.AppConstants;
-import com.rvsti.filedownload.svc.Downloader;
+import AppConstants;
+import svc.Downloader;
 import java.io.IOException;
 import org.apache.commons.vfs2.*;
 
