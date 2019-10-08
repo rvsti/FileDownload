@@ -19,7 +19,11 @@
       <artifactId>commons-net</artifactId>
       <version>3.3</version>
     </dependency>
-
+    <dependency>
+      <groupId>com.jcraft</groupId>
+      <artifactId>jsch</artifactId>
+      <version>${jsch.version}</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -35,5 +39,7 @@
     </plugins>
   </build>
 
-
+  <properties>
+    <jsch.version>0.1.54</jsch.version>
+  </properties>
 </project>
