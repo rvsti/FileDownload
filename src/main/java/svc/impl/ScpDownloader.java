@@ -10,24 +10,17 @@ import java.io.*;
 public class ScpDownloader implements Downloader {
 
     @Override
-    public void downloadFile(String urlStr,String filePath) {
-
-    }
-
-    public static void main(String[] arg){
-//        if(arg.length!=2){
-//            System.err.println("usage: java ScpFrom user@remotehost:file1 file2");
-//            System.exit(-1);
-//        }
-        String str = "raj@localhost:/Users/raj/Desktop/pics/bo.png";
-        String str1 = "/Users/raj/Desktop/bo.png";
-        FileOutputStream fos=null;
+    public boolean downloadFile(String url, String filePath) {
+//        scp://root@host/root/ids/rules.tar.gz
+//        String str = "raj@localhost:/Users/raj/Desktop/pics/bo.png";
+        FileOutputStream fos = null;
         try{
-            String user=str.substring(0, str.indexOf('@'));
-            str=str.substring(str.indexOf('@')+1);
-            String host=str.substring(0, str.indexOf(':'));
-            String rfile=str.substring(str.indexOf(':')+1);
-            String lfile=str1;
+            String user = url.substring(6, url.indexOf('@'));
+            String str = url.substring(url.indexOf('@')+1);
+            String host = str.substring(0, str.indexOf(':'));
+
+            String rfile = str.substring(str.indexOf(':')+1);
+            String lfile = filePath;
 
             String prefix=null;
             if(new File(lfile).isDirectory()){
@@ -36,7 +29,6 @@ public class ScpDownloader implements Downloader {
 
             JSch jsch=new JSch();
             Session session=jsch.getSession(user, host, 22);
-
             // username and password will be given via UserInfo interface.
             UserInfo ui = new MyUserInfo();
             session.setUserInfo(ui);
@@ -120,12 +112,12 @@ public class ScpDownloader implements Downloader {
             }
 
             session.disconnect();
-
-            System.exit(0);
+            return true;
         }
         catch(Exception e){
             System.out.println(e);
             try{if(fos!=null)fos.close();}catch(Exception ee){}
+            return false;
         }
     }
 

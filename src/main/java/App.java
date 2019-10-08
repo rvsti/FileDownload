@@ -1,5 +1,7 @@
 import factory.DownloaderFactory;
 import svc.Downloader;
+import utils.FileUtils;
+
 import java.io.IOException;
 import java.util.*;
 import java.nio.charset.StandardCharsets;
@@ -22,14 +24,14 @@ public class App {
   }
 
   public static void main(String[] args) {
-    List<String> urls = getUrls("../resources/Urls.text");
-    String localPath = ("user.dir") + "/";
+    List<String> urls = getUrls("resources/Urls.txt");
+    String localPath = System.getProperty("user.home") + "/";
 
     for (String url : urls) {
       DownloaderFactory factory = new DownloaderFactory();
       Downloader df = factory.getDownloader(url);
       try {
-        df.downloadFile(url,localPath);
+        df.downloadFile(url,localPath + FileUtils.getFileName(url));
       }
       catch (IOException ex)
       {

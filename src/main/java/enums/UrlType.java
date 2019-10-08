@@ -1,7 +1,7 @@
 package enums;
 
 public enum UrlType {
-  HTTP("http"), FTP("ftp"), SFTP("sftp"), SCP("scp");
+  HTTP("http"), HTTPS("HTTPS"), FTP("ftp"), SFTP("sftp"), SCP("scp");
 
   private String type;
 

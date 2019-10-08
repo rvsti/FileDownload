@@ -13,13 +13,13 @@ public class DownloaderFactory {
     if (url == null) {
       return null;
     }
-    if (url.contains(UrlType.HTTP.getType())) {
+    if (url.startsWith(UrlType.HTTP.getType()) || url.startsWith(UrlType.HTTPS.getType())) {
       return new HttpDownloader();
-    } else if (url.contains(UrlType.FTP.getType())) {
+    } else if (url.startsWith(UrlType.FTP.getType())) {
       return new FtpDownloader();
-    } else if(url.contains((UrlType.SFTP.getType()))) {
+    } else if(url.startsWith((UrlType.SFTP.getType()))) {
       return new SftpDownloader();
-    } else if(url.contains(UrlType.SCP.getType())) {
+    } else if(url.startsWith(UrlType.SCP.getType())) {
       return new ScpDownloader();
     }
     return null;
